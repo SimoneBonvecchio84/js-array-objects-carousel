@@ -41,8 +41,16 @@ const images = [
 //   console.log(curElem.text);
 // }
 
+
+
+
 // collego questa variabile all elemento dom tramite querySelector
 const contCarouselImg = document.querySelector(".my-carousel-images");
+
+
+
+
+
 
 images.forEach((curElem) => {
   console.log("-------------")
@@ -50,25 +58,64 @@ images.forEach((curElem) => {
   console.log(curElem.image);
   console.log(curElem.text);
   curElem =
-   ` 
-   <div class="my-carousel-item active" carousel-item="1">
-   <img
-     class="img-fluid"
-     src="${curElem.image}"
-     alt="Marvel's Spiderman Miles Morale picture"
-   />
-   <div class="item-description px-3">
-     <h2>${curElem.title}</h2>
-     <p>${curElem.text}</p>
-   </div>
- </div>
+    ` 
+      <div class="my-carousel-item" carousel-item="1">
+      <img
+        class="img-fluid"
+        src="${curElem.image}"        
+      />
+        <div class="item-description px-3">
+          <h2>${curElem.title}</h2>
+          <p>${curElem.text}</p>
+        </div>
+      </div>
     
     `
 
-  contCarouselImg.innerHTML += curElem; 
-})
+  contCarouselImg.innerHTML += curElem;
+});
 
 
 
+let myCarouselItem = document.querySelectorAll(".my-carousel-item");
+console.log(myCarouselItem);
 
+let imgIndex = 0;
+
+myCarouselItem[imgIndex].classList.add("active");
+
+// collego evento al bottone per far scorrere le immagini
+const btnNext = document.querySelector(".my-next").addEventListener("click", nextImg);
+
+function nextImg() {
+  myCarouselItem[imgIndex].classList.remove("active");
+  
+
+  if (imgIndex < myCarouselItem.length -1) {
+    imgIndex++;
+    myCarouselItem[imgIndex].classList.add("active");
+    
+  } else {
+    imgIndex = 0;
+    myCarouselItem[imgIndex].classList.add("active");
+  }
+
+  
+}
+
+const btnPrev = document.querySelector(".my-previous").addEventListener("click", prevImg);
+
+function prevImg() {
+  myCarouselItem[imgIndex].classList.remove("active");
+  if(imgIndex > 0){
+    imgIndex--;
+    myCarouselItem[imgIndex].classList.add("active");
+
+  } else {
+    imgIndex = myCarouselItem.length - 1;
+    myCarouselItem[imgIndex].classList.add("active");
+  }
+  
+  
+} 
 
