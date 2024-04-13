@@ -48,15 +48,8 @@ const images = [
 const contCarouselImg = document.querySelector(".my-carousel-images");
 
 
-
-
-
-
 images.forEach((curElem) => {
-  console.log("-------------")
-  console.log(curElem.title);
-  console.log(curElem.image);
-  console.log(curElem.text);
+  
   curElem =
     ` 
       <div class="my-carousel-item" carousel-item="1">
@@ -69,7 +62,8 @@ images.forEach((curElem) => {
           <p>${curElem.text}</p>
         </div>
       </div>
-    
+
+
     `
 
   contCarouselImg.innerHTML += curElem;
@@ -78,7 +72,7 @@ images.forEach((curElem) => {
 
 
 let myCarouselItem = document.querySelectorAll(".my-carousel-item");
-console.log(myCarouselItem);
+
 
 let imgIndex = 0;
 
@@ -119,3 +113,19 @@ function prevImg() {
   
 } 
 
+// MILESTONE 2
+
+const myThumbnails = document.querySelector(".my-thumbnails");
+
+images.forEach((curElem)=>{
+  
+  curElem = 
+   `
+   <img class="img-fluid my-thumbnail" src="${curElem.image}"
+   alt="Thumbnail of Marvel's Spiderman Miles Morale picture" />
+
+   `
+   myThumbnails.innerHTML += curElem;
+});
+
+const imgThumbnails = document.querySelectorAll(".my-thumbnail");
