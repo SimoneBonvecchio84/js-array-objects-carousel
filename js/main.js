@@ -115,17 +115,26 @@ function prevImg() {
 
 // MILESTONE 2
 
-const myThumbnails = document.querySelector(".my-thumbnails");
+// const myThumbnails = document.querySelector(".my-thumbnails");
 
-images.forEach((curElem)=>{
+// images.forEach((curElem2)=>{
   
-  curElem = 
-   `
-   <img class="img-fluid my-thumbnail" src="${curElem.image}"
-   alt="Thumbnail of Marvel's Spiderman Miles Morale picture" />
+//   curElem2 = 
+//    `
+//    <img class="img-fluid my-thumbnail active" src="./img/01.webp"
+//    alt="Thumbnail of Marvel's Spiderman Miles Morale picture" />
 
-   `
-   myThumbnails.innerHTML += curElem;
-});
+//    `
+//   myThumbnails.innerHTML += curElem2;
+ 
+  
+// });
 
-const imgThumbnails = document.querySelectorAll(".my-thumbnail");
+
+
+
+
+
+
+
+
