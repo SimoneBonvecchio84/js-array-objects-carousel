@@ -52,7 +52,7 @@ const myThumbnails = document.querySelector(".my-thumbnails");
 
 
 images.forEach((curElem, index) => {
-  
+
   curImg =
     ` 
       <div class="my-carousel-item" carousel-item="1">
@@ -68,25 +68,24 @@ images.forEach((curElem, index) => {
 
 
     `
-  
-  curThumb =  
-     `
+
+  curThumb =
+    `
       <img class="img-fluid my-thumbnail" src="${curElem.image}"
       alt="${curElem.title}" />
   
      `
-   
+
 
   contCarouselImg.innerHTML += curImg;
   myThumbnails.innerHTML += curThumb;
-  
+
 });
 
 
 
 let myCarouselItem = document.querySelectorAll(".my-carousel-item");
 let myThumbnailsImg = document.querySelectorAll(".my-thumbnail")
-console.log(myThumbnailsImg);
 let imgIndex = 0;
 
 myCarouselItem[imgIndex].classList.add("active");
@@ -98,20 +97,20 @@ const btnNext = document.querySelector(".my-next").addEventListener("click", nex
 function nextImg() {
   myCarouselItem[imgIndex].classList.remove("active");
   myThumbnailsImg[imgIndex].classList.remove("active");
-  
 
-  if (imgIndex < myCarouselItem.length -1) {
+
+  if (imgIndex < myCarouselItem.length - 1) {
     imgIndex++;
     myCarouselItem[imgIndex].classList.add("active");
     myThumbnailsImg[imgIndex].classList.add("active");
-    
+
   } else {
     imgIndex = 0;
     myCarouselItem[imgIndex].classList.add("active");
     myThumbnailsImg[imgIndex].classList.add("active");
   }
 
-  
+
 }
 
 const btnPrev = document.querySelector(".my-previous").addEventListener("click", prevImg);
@@ -119,7 +118,7 @@ const btnPrev = document.querySelector(".my-previous").addEventListener("click",
 function prevImg() {
   myCarouselItem[imgIndex].classList.remove("active");
   myThumbnailsImg[imgIndex].classList.remove("active");
-  if(imgIndex > 0){
+  if (imgIndex > 0) {
     imgIndex--;
     myCarouselItem[imgIndex].classList.add("active");
     myThumbnailsImg[imgIndex].classList.add("active");
@@ -128,14 +127,54 @@ function prevImg() {
     myCarouselItem[imgIndex].classList.add("active");
     myThumbnailsImg[imgIndex].classList.add("active");
   }
-  
-  
-} 
+
+}
+
+const startAndStopBtn = document.getElementById("my-stop-button")
+  .addEventListener("click", startButton);
+
+function startButton() {
+  const clock = setInterval(function () {
+
+    myCarouselItem[imgIndex].classList.remove("active");
+    myThumbnailsImg[imgIndex].classList.remove("active");
+
+
+    if (imgIndex < myCarouselItem.length - 1) {
+      imgIndex++;
+      myCarouselItem[imgIndex].classList.add("active");
+      myThumbnailsImg[imgIndex].classList.add("active");
+
+    } else {
+      imgIndex = 0;
+      myCarouselItem[imgIndex].classList.add("active");
+      myThumbnailsImg[imgIndex].classList.add("active");
+    }
 
 
 
+  }, 2000);
+}
 
 
+const invertBtn = document.getElementById("my-order-button")
+  .addEventListener("click", reverseButton);
+
+function reverseButton() {
+  const clock = setInterval(function () {
+    myCarouselItem[imgIndex].classList.remove("active");
+    myThumbnailsImg[imgIndex].classList.remove("active");
+    if (imgIndex > 0) {
+      imgIndex--;
+      myCarouselItem[imgIndex].classList.add("active");
+      myThumbnailsImg[imgIndex].classList.add("active");
+    } else {
+      imgIndex = myCarouselItem.length - 1;
+      myCarouselItem[imgIndex].classList.add("active");
+      myThumbnailsImg[imgIndex].classList.add("active");
+    }
+  }, 2000);
+}
 
 
 
