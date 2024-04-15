@@ -47,10 +47,13 @@ const images = [
 // collego questa variabile all elemento dom tramite querySelector
 const contCarouselImg = document.querySelector(".my-carousel-images");
 
+const myThumbnails = document.querySelector(".my-thumbnails");
 
-images.forEach((curElem) => {
+
+
+images.forEach((curElem, index) => {
   
-  curElem =
+  curImg =
     ` 
       <div class="my-carousel-item" carousel-item="1">
       <img
@@ -65,8 +68,18 @@ images.forEach((curElem) => {
 
 
     `
+  
+  curThumb =  
+     `
+     <img class="img-fluid my-thumbnail active" src="${curElem.image}"
+     alt="Thumbnail of Marvel's Spiderman Miles Morale picture" />
+  
+     `
+   
 
-  contCarouselImg.innerHTML += curElem;
+  contCarouselImg.innerHTML += curImg;
+  myThumbnails.innerHTML += curThumb;
+  
 });
 
 
