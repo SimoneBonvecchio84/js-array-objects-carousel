@@ -71,8 +71,8 @@ images.forEach((curElem, index) => {
   
   curThumb =  
      `
-     <img class="img-fluid my-thumbnail active" src="${curElem.image}"
-     alt="Thumbnail of Marvel's Spiderman Miles Morale picture" />
+      <img class="img-fluid my-thumbnail" src="${curElem.image}"
+      alt="${curElem.title}" />
   
      `
    
@@ -85,26 +85,30 @@ images.forEach((curElem, index) => {
 
 
 let myCarouselItem = document.querySelectorAll(".my-carousel-item");
-
-
+let myThumbnailsImg = document.querySelectorAll(".my-thumbnail")
+console.log(myThumbnailsImg);
 let imgIndex = 0;
 
 myCarouselItem[imgIndex].classList.add("active");
+myThumbnailsImg[imgIndex].classList.add("active");
 
 // collego evento al bottone per far scorrere le immagini
 const btnNext = document.querySelector(".my-next").addEventListener("click", nextImg);
 
 function nextImg() {
   myCarouselItem[imgIndex].classList.remove("active");
+  myThumbnailsImg[imgIndex].classList.remove("active");
   
 
   if (imgIndex < myCarouselItem.length -1) {
     imgIndex++;
     myCarouselItem[imgIndex].classList.add("active");
+    myThumbnailsImg[imgIndex].classList.add("active");
     
   } else {
     imgIndex = 0;
     myCarouselItem[imgIndex].classList.add("active");
+    myThumbnailsImg[imgIndex].classList.add("active");
   }
 
   
@@ -114,34 +118,20 @@ const btnPrev = document.querySelector(".my-previous").addEventListener("click",
 
 function prevImg() {
   myCarouselItem[imgIndex].classList.remove("active");
+  myThumbnailsImg[imgIndex].classList.remove("active");
   if(imgIndex > 0){
     imgIndex--;
     myCarouselItem[imgIndex].classList.add("active");
-
+    myThumbnailsImg[imgIndex].classList.add("active");
   } else {
     imgIndex = myCarouselItem.length - 1;
     myCarouselItem[imgIndex].classList.add("active");
+    myThumbnailsImg[imgIndex].classList.add("active");
   }
   
   
 } 
 
-// MILESTONE 2
-
-// const myThumbnails = document.querySelector(".my-thumbnails");
-
-// images.forEach((curElem2)=>{
-  
-//   curElem2 = 
-//    `
-//    <img class="img-fluid my-thumbnail active" src="./img/01.webp"
-//    alt="Thumbnail of Marvel's Spiderman Miles Morale picture" />
-
-//    `
-//   myThumbnails.innerHTML += curElem2;
- 
-  
-// });
 
 
 
