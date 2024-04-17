@@ -130,30 +130,43 @@ function prevImg() {
 
 }
 
-const startAndStopBtn = document.getElementById("my-stop-button")
+let start = false;
+let clock;
+const startBtn = document.getElementById("my-stop-button")
   .addEventListener("click", startButton);
 
 function startButton() {
-  const clock = setInterval(function () {
 
-    myCarouselItem[imgIndex].classList.remove("active");
-    myThumbnailsImg[imgIndex].classList.remove("active");
+  if (!start) {
+    start = true;
+     clock = setInterval(function () {
 
-
-    if (imgIndex < myCarouselItem.length - 1) {
-      imgIndex++;
-      myCarouselItem[imgIndex].classList.add("active");
-      myThumbnailsImg[imgIndex].classList.add("active");
-
-    } else {
-      imgIndex = 0;
-      myCarouselItem[imgIndex].classList.add("active");
-      myThumbnailsImg[imgIndex].classList.add("active");
-    }
+      myCarouselItem[imgIndex].classList.remove("active");
+      myThumbnailsImg[imgIndex].classList.remove("active");
 
 
+      if (imgIndex < myCarouselItem.length - 1) {
+        imgIndex++;
+        myCarouselItem[imgIndex].classList.add("active");
+        myThumbnailsImg[imgIndex].classList.add("active");
 
-  }, 2000);
+      } else {
+        imgIndex = 0;
+        myCarouselItem[imgIndex].classList.add("active");
+        myThumbnailsImg[imgIndex].classList.add("active");
+      }
+
+
+
+    }, 2000);
+
+
+
+  } else {
+    clearInterval(clock)
+    start = false
+  }
+
 }
 
 
